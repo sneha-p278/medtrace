@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTrace - Manufacturer Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        :root {
+            --primary-color: #0095ff;
+            --primary-dark: #1a56db;
+            --text-gray: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            background-color: #f9fafb;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 250px;
+            background: white;
+            padding: 1rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .logo-icon {
+            background: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            color: var(--text-gray);
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-item.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #111827;
+            font-size: 1.875rem;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: white;
+        }
+
+        .new-shipment-btn {
+            background: var(--primary-dark);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem;
+            color: var(--text-gray);
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .status-badge {
+            background: #fff7ed;
+            color: #c2410c;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .action-btn {
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .view-btn {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .edit-btn {
+            background: #10b981;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">M</div>
+            <div>
+                <div><strong>MedTrace</strong></div>
+                <div class="logo-text">Manufacturer Portal</div>
+            </div>
+        </div>
+        <nav>
+            <a href="#" class="nav-item">
+                <span>📊</span>
+                Dashboard
+            </a>
+            <a href="#" class="nav-item active">
+                <span>🚚</span>
+                Shipments
+            </a>
+            <a href="#" class="nav-item">
+                <span>👤</span>
+                Profile
+            </a>
+            <a href="#" class="nav-item">
+                <span>🔔</span>
+                Notifications
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Shipments</h1>
+            <button class="new-shipment-btn">
+                <span>+</span>
+                New Shipment
+            </button>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search shipments..." class="search-input">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Shipment ID</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Destination</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="shipments-table-body">
+                <tr>
+                    <td>SHP-2024-001</td>
+                    <td>Paracetamol 500mg</td>
+                    <td>50,000 units</td>
+                    <td>Central Pharmacy Ltd</td>
+                    <td><span class="status-badge">In Transit</span></td>
+                    <td>2024-03-15</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="action-btn view-btn">👁️</button>
+                            <button class="action-btn edit-btn">✏️</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#shipments-table-body tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+
+        // New shipment button
+        document.querySelector('.new-shipment-btn').addEventListener('click', () => {
+            alert('New shipment form would open here');
+        });
+
+        // Action buttons
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.classList.contains('view-btn') ? 'view' : 'edit';
+                const shipmentId = btn.closest('tr').firstElementChild.textContent;
+                alert(`${action} shipment ${shipmentId}`);
+            });
+        });
+    </script>
+</body>
+</html>
