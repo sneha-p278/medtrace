@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTrace - Choose Your Role</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f6fa;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: #2a3990;
+            color: white;
+            padding: 2rem;
+            width: 40%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 4rem;
+        }
+
+        .logo::before {
+            content: "◊";
+            margin-right: 0.5rem;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: #bbc1e1;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: #bbc1e1;
+        }
+
+        .feature-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-right: 1rem;
+        }
+
+        .copyright {
+            position: absolute;
+            bottom: 2rem;
+            color: #bbc1e1;
+            font-size: 0.9rem;
+        }
+
+        .cards-container {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .role-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .role-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .manufacturer .role-icon {
+            background-color: #e8f5e9;
+            color: #43a047;
+        }
+
+        .distributor .role-icon {
+            background-color: #e3f2fd;
+            color: #1e88e5;
+        }
+
+        .pharmacy .role-icon {
+            background-color: #f3e5f5;
+            color: #8e24aa;
+        }
+
+        .role-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .role-description {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .features-list {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .feature-item i {
+            margin-right: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 0.75rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid;
+        }
+
+        .manufacturer .btn-primary {
+            background-color: #43a047;
+            color: white;
+        }
+
+        .manufacturer .btn-outline {
+            border-color: #43a047;
+            color: #43a047;
+        }
+
+        .distributor .btn-primary {
+            background-color: #1e88e5;
+            color: white;
+        }
+
+        .distributor .btn-outline {
+            border-color: #1e88e5;
+            color: #1e88e5;
+        }
+
+        .pharmacy .btn-primary {
+            background-color: #8e24aa;
+            color: white;
+        }
+
+        .pharmacy .btn-outline {
+            border-color: #8e24aa;
+            color: #8e24aa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">MedTrace</div>
+            <h1 class="main-title">Choose Your Role</h1>
+            <p class="subtitle">Select your role in the pharmaceutical supply chain to continue</p>
+            
+            <div class="feature">
+                <span class="feature-icon">🔒</span>
+                <div>
+                    <h3>Secure Platform</h3>
+                    <p>End-to-end encryption and blockchain verification</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">📊</span>
+                <div>
+                    <h3>Real-time Analytics</h3>
+                    <p>Track and analyze your supply chain in real-time</p>
+                </div>
+            </div>
+            
+            <div class="copyright">© 2024 MedTrace. All rights reserved.</div>
+        </div>
+        
+        <div class="cards-container">
+            <div class="role-card manufacturer">
+                <div class="role-icon">🏭</div>
+                <h2 class="role-title">Manufacturer</h2>
+                <p class="role-description">Track production, manage inventory, and ensure compliance</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i>📦</i>
+                        <span>Production tracking</span>
+                    </div>
+                    <div class="feature-item">
+                        <i>✓</i>
+                        <span>Quality control</span>
+                    </div>
+                    <div class="feature-item">
+                        <i>🔄</i>
+                        <span>Batch management</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline">Sign In</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div>
+            
+            <div class="role-card distributor">
+                <div class="role-icon">🚚</div>
+                <h2 class="role-title">Distributor</h2>
+                <p class="role-description">Manage shipments and coordinate supply chain operations</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i>📍</i>
+                        <span>Shipment tracking</span>
+                    </div>
+                    <div class="feature-item">
+                        <i>📦</i>
+                        <span>Inventory management</span>
+                    </div>
+                    <div class="feature-item">
+                        <i>🛣️</i>
+                        <span>Route optimization</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline">Sign In</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div>
+            
+            <div class="role-card pharmacy">
+                <div class="role-icon">💊</div>
+                <h2 class="role-title">Pharmacy</h2>
+                <p class="role-description">Verify authenticity and manage pharmaceutical inventory</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i>✓</i>
+                        <span>Product verification</span>
+                    </div>
+                    <div class="feature-item">
+                        <i>📦</i>
+                        <span>Stock management</span>
+                    </div>
+                    <div class="feature-item">
+                        <i>❤️</i>
+                        <span>Patient safety</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline">Sign In</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add hover effects
+        document.querySelectorAll('.role-card').forEach(card => {
+            card.addEventListener('mouseover', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.transition = 'transform 0.3s ease';
+                this.style.boxShadow = '0 6px 12px rgba(0,0,0,0.1)';
+            });
+            
+            card.addEventListener('mouseout', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 4px 6px rgba(0,0,0,0.05)';
+            });
+        });
+
+        // Add button click effects
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

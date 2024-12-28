@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTrace - Manufacturer Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f6fa;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: #2a3990;
+            color: white;
+            padding: 3rem;
+            width: 45%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .logo-icon {
+            background-color: #3498db;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: #bbc1e1;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .feature:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-right: 1rem;
+        }
+
+        .feature-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-content p {
+            color: #bbc1e1;
+            line-height: 1.5;
+        }
+
+        .registration-container {
+            flex: 1;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            color: #2a3990;
+        }
+
+        .registration-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .registration-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: #2a3990;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .registration-subtitle {
+            color: #666;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #f8f9fe;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2a3990;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(42, 57, 144, 0.1);
+        }
+
+        .create-button {
+            width: 100%;
+            padding: 0.875rem;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .create-button:hover {
+            background: #2980b9;
+        }
+
+        .terms-text {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .terms-text a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">M</span>
+                <span>Trace</span>
+            </div>
+            
+            <h1 class="main-title">Join the Future of Pharmaceutical Supply Chain</h1>
+            <p class="subtitle">Create your account to start managing your operations securely.</p>
+            
+            <div class="feature">
+                <span class="feature-icon">🚀</span>
+                <div class="feature-content">
+                    <h3>Quick Setup</h3>
+                    <p>Get started in minutes with our simple onboarding process</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🔒</span>
+                <div class="feature-content">
+                    <h3>Secure Platform</h3>
+                    <p>Enterprise-grade security for your operations</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="registration-container">
+            <a href="#" class="back-link">← Back to role selection</a>
+            
+            <div class="registration-header">
+                <h2 class="registration-title">
+                    <span>🏭</span>
+                    Manufacturer Registration
+                </h2>
+                <p class="registration-subtitle">Fill in your details to create your account</p>
+            </div>
+            
+            <form id="registrationForm" class="form-card">
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span>🏢</span>
+                        Company Information
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Company Name</label>
+                        <input type="text" class="form-input" id="companyName" required>
+                        <div class="error-message" id="companyNameError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">License Number</label>
+                        <input type="text" class="form-input" id="licenseNumber" required>
+                        <div class="error-message" id="licenseNumberError"></div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span>👤</span>
+                        Account Details
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" id="email" required>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" id="password" required>
+                        <div class="error-message" id="passwordError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-input" id="confirmPassword" required>
+                        <div class="error-message" id="confirmPasswordError"></div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="create-button">Create Account →</button>
+                
+                <p class="terms-text">
+                    By creating an account, you agree to our 
+                    <a href="#">Terms of Service</a> and 
+                    <a href="#">Privacy Policy</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+            
+            // Company name validation
+            const companyName = document.getElementById('companyName');
+            const companyNameError = document.getElementById('companyNameError');
+            
+            if (!companyName.value.trim()) {
+                companyNameError.textContent = 'Company name is required';
+                companyNameError.style.display = 'block';
+                isValid = false;
+            } else {
+                companyNameError.style.display = 'none';
+            }
+            
+            // License number validation
+            const licenseNumber = document.getElementById('licenseNumber');
+            const licenseNumberError = document.getElementById('licenseNumberError');
+            
+            if (!licenseNumber.value.trim()) {
+                licenseNumberError.textContent = 'License number is required';
+                licenseNumberError.style.display = 'block';
+                isValid = false;
+            } else {
+                licenseNumberError.style.display = 'none';
+            }
+            
+            // Email validation
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!email.value.trim()) {
+                emailError.textContent = 'Email is required';
+                emailError.style.display = 'block';
+                isValid = false;
+            } else if (!emailPattern.test(email.value)) {
+                emailError.textContent = 'Please enter a valid email address';
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+            
+            // Password validation
+            const password = document.getElementById('password');
+            const passwordError = document.getElementById('passwordError');
+            const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            
+            if (!password.value) {
+                passwordError.textContent = 'Password is required';
+                passwordError.style.display = 'block';
+                isValid = false;
+            } else if (!passwordPattern.test(password.value)) {
+                passwordError.textContent = 'Password must be at least 8 characters long and include both letters and numbers';
+                passwordError.style.display = 'block';
+                isValid = false;
+            } else {
+                passwordError.style.display = 'none';
+            }
+            
+            // Confirm password validation
+            const confirmPassword = document.getElementById('confirmPassword');
+            const confirmPasswordError = document.getElementById('confirmPasswordError');
+            
+            if (!confirmPassword.value) {
+                confirmPasswordError.textContent = 'Please confirm your password';
+                confirmPasswordError.style.display = 'block';
+                isValid = false;
+            } else if (confirmPassword.value !== password.value) {
+                confirmPasswordError.textContent = 'Passwords do not match';
+                confirmPasswordError.style.display = 'block';
+                isValid = false;
+            } else {
+                confirmPasswordError.style.display = 'none';
+            }
+            
+            if (isValid) {
+                // Show loading state
+                const submitButton = document.querySelector('.create-button');
+                const originalText = submitButton.textContent;
+                submitButton.disabled = true;
+                submitButton.textContent = 'Creating Account...';
+                
+                // Simulate API call
+                setTimeout(() => {
+                    // Success notification
+                    showNotification('Account created successfully! Redirecting...', 'success');
+                    
+                    // Redirect after delay
+                    setTimeout(() => {
+                        window.location.href = '/dashboard';
+                    }, 2000);
+                }, 1500);
+            }
+        });
+
+        // Notification helper
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 16px 24px;
+                border-radius: 8px;
+                color: white;
+                background: ${type === 'success' ? '#2ecc71' : '#e74c3c'};
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                transform: translateX(120%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(120%)';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Add input focus effects
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
+            });
+        });
+    </script>
+</body>
+</html>
